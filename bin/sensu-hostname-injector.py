@@ -9,7 +9,7 @@ def main():
     data = json.load(sys.stdin)
 
     if "entity" not in data:
-        print(data)
+        print(json.dumps(data))
         return
 
     if "system" not in data["entity"]:
@@ -18,7 +18,7 @@ def main():
     if "hostname" not in data["entity"]["system"]:
         data["entity"]["system"]["hostname"] = socket.gethostname()
 
-    print(data)
+    print(json.dumps(data))
 
 
 if __name__ == '__main__':
